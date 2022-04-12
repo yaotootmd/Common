@@ -126,34 +126,34 @@ async function execSign() {
     console.log("京东签到脚本执行异常:" + e);
   }
 }
-async function downFile () {
-  let url = '';
-  await downloadUrl();
-  if ($.body) {
-    url = 'https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js';
-  } else {
-    url = 'https://cdn.jsdelivr.net/gh/NobyDa/Script@master/JD-DailyBonus/JD_DailyBonus.js';
-  }
-  try {
-    const options = { }
-    if (process.env.TG_PROXY_HOST && process.env.TG_PROXY_PORT) {
-      const tunnel = require("tunnel");
-      const agent = {
-        https: tunnel.httpsOverHttp({
-          proxy: {
-            host: process.env.TG_PROXY_HOST,
-            port: process.env.TG_PROXY_PORT * 1
-          }
-        })
-      }
-      Object.assign(options, { agent })
-    }
-    await download(url, outPutUrl, options);
-    console.log(`JD_DailyBonus.js文件下载完毕\n\n`);
-  } catch (e) {
-    console.log("JD_DailyBonus.js 文件下载异常:" + e);
-  }
-}
+// async function downFile () {
+//   let url = '';
+//   await downloadUrl();
+//   if ($.body) {
+//     url = 'https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js';
+//   } else {
+//     url = 'https://cdn.jsdelivr.net/gh/NobyDa/Script@master/JD-DailyBonus/JD_DailyBonus.js';
+//   }
+//   try {
+//     const options = { }
+//     if (process.env.TG_PROXY_HOST && process.env.TG_PROXY_PORT) {
+//       const tunnel = require("tunnel");
+//       const agent = {
+//         https: tunnel.httpsOverHttp({
+//           proxy: {
+//             host: process.env.TG_PROXY_HOST,
+//             port: process.env.TG_PROXY_PORT * 1
+//           }
+//         })
+//       }
+//       Object.assign(options, { agent })
+//     }
+//     await download(url, outPutUrl, options);
+//     console.log(`JD_DailyBonus.js文件下载完毕\n\n`);
+//   } catch (e) {
+//     console.log("JD_DailyBonus.js 文件下载异常:" + e);
+//   }
+// }
 
 async function changeFile (content) {
   console.log(`开始替换变量`)
